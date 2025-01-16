@@ -1,0 +1,8 @@
+build
+cmake-build-debug
+.idea
+.vscode
+*.iml
+.DS_Store
+
+run.tests
