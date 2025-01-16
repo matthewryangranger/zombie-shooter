@@ -107,3 +107,46 @@ void Player::stopDown()
   m_DownPressed = false;
 }
 
+void Player::update(float elapsedTime, sf::Vector2i mousePosition)
+{
+  if (m_LeftPressed)
+    m_Position.x -= m_Speed * elapsedTime;
+  if (m_RightPressed)
+    m_Position.x += m_Speed * elapsedTime;
+  if (m_UpPressed)
+    m_Position.y -= m_Speed * elapsedTime;
+  if (m_DownPressed)
+    m_Position.y += m_Speed * elapsedTime;
+
+  m_Sprite.setPosition(m_Position);
+
+  if (m_Position.x > m_Arena.width - m_TileSize)
+    m_Position.x = m_Arena.width - m_TileSize;
+  if (m_Position.x < m_Arena.left + m_TileSize)
+    m_Position.x = m_Arena.left + m_TileSize;
+  if (m_Position.y > m_Arena.height - m_TileSize)
+    m_Position.y = m_Arena.height - m_TileSize;
+  if (m_Position.y < m_Arena.top + m_TileSize)
+    m_Position.y = m_Arena.top + m_TileSize;
+
+  float angle = (atan2(mousePosition.y - m_Resolution.y /2, mousePosition.x - m_Resolution.x /2) * 180 / M_PI);
+
+  m_Sprite.setRotation(angle);
+}
+
+void Player::upgradeSpeed()
+{
+  m_Speed += (START_SPEED * .2);
+}
+
+void Player::upgradeHealth()
+{
+  m_MaxHealth += (START_HEALTH * .2);
+}
+
+void Player::increaseHealthLevel(int amount)
+{
+  m_Health += amount;
+  if (m_Health > m_MaxHealth)
+    m_Health = m_MaxHealth;
+}
