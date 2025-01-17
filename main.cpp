@@ -1,4 +1,5 @@
 #include <SFML/Graphics.hpp>
+#include "ZombieArena.h"
 #include "Player.h"
 
 int main()
@@ -18,6 +19,9 @@ int main()
   sf::Vector2i mouseScreenPosition;
   Player player;
   sf::IntRect arena;
+  sf::VertexArray background;
+  sf::Texture textureBackground;
+  textureBackground.loadFromFile("../graphics/background_sheet.png");
 
   while (window.isOpen())
   {
@@ -78,7 +82,7 @@ int main()
         arena.height = 500;
         arena.left = 0;
         arena.top = 0;
-        int tileSize = 50;
+        int tileSize = createBackground(background, arena);
         player.spawn(arena, resolution, tileSize);\
         clock.restart();
       }
@@ -104,6 +108,7 @@ int main()
     {
       window.clear();
       window.setView(mainView);
+      window.draw(background, &textureBackground);
       window.draw(player.getSprite());
     }
     if (state == State::LEVELING_UP){}
