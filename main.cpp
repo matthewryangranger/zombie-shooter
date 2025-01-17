@@ -73,13 +73,29 @@ int main()
       {
         state = State::PLAYING;
       }
-      arena.width = 500;
-      arena.height = 500;
-      arena.left = 0;
-      arena.top = 0;
-      int tileSize = 50;
-      player.spawn(arena, resolution, tileSize);\
-      clock.restart();
+      if (state == State::PLAYING){
+        arena.width = 500;
+        arena.height = 500;
+        arena.left = 0;
+        arena.top = 0;
+        int tileSize = 50;
+        player.spawn(arena, resolution, tileSize);\
+        clock.restart();
+      }
+    }
+    /*
+     * UPDATING THE FRAME
+     **/
+    if (state == State::PLAYING)
+    {
+      sf::Time dt = clock.restart();
+      gameTimeTotal += dt;
+      float dtAsSeconds = dt.asSeconds();
+      mouseScreenPosition = sf::Mouse::getPosition();
+      mouseWorldPosition = window.mapPixelToCoords(sf::Mouse::getPosition(), mainView);
+      player.update(dtAsSeconds, sf::Mouse::getPosition());
+      sf::Vector2f playerPosition(player.getCenter());
+      mainView.setCenter(player.getCenter());
     }
   }
   return 0;
