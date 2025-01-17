@@ -10,7 +10,7 @@ int main()
   resolution.x = sf::VideoMode::getDesktopMode().width;
   resolution.y = sf::VideoMode::getDesktopMode().height;
 
-  sf::RenderWindow window(sf::VideoMode(resolution.x, resolution.y), "Zombie Shooter", sf::Style::Fullscreen);
+  sf::RenderWindow window(sf::VideoMode(resolution.x, resolution.y), "Zombie Shooter", sf::Style::Default);
   sf::View mainView(sf::FloatRect(0, 0, resolution.x, resolution.y));
   sf::Clock clock;
   sf::Time gameTimeTotal;
@@ -97,6 +97,19 @@ int main()
       sf::Vector2f playerPosition(player.getCenter());
       mainView.setCenter(player.getCenter());
     }
+    /*
+     * DRAW THE SCENE
+     **/
+    if (state == State::PLAYING)
+    {
+      window.clear();
+      window.setView(mainView);
+      window.draw(player.getSprite());
+    }
+    if (state == State::LEVELING_UP){}
+    if (state == State::PAUSED){}
+    if (state == State::GAME_OVER){}
+    window.display();
   }
   return 0;
 }

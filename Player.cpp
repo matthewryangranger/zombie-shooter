@@ -49,7 +49,7 @@ sf::FloatRect Player::getPosition() const
 
 sf::Vector2f Player::getCenter() const
 {
-  return m_Position:
+  return m_Position;
 }
 
 float Player::getRotation() const
@@ -129,7 +129,7 @@ void Player::update(float elapsedTime, sf::Vector2i mousePosition)
   if (m_Position.y < m_Arena.top + m_TileSize)
     m_Position.y = m_Arena.top + m_TileSize;
 
-  float angle = (atan2(mousePosition.y - m_Resolution.y /2, mousePosition.x - m_Resolution.x /2) * 180 / M_PI);
+  float angle = (atan2(mousePosition.y - m_Resolution.y / 2, mousePosition.x - m_Resolution.x / 2) * 180) / M_PI;
 
   m_Sprite.setRotation(angle);
 }
