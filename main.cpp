@@ -21,7 +21,66 @@ int main()
 
   while (window.isOpen())
   {
-
+    sf::Event event;
+    while (window.pollEvent(event))
+    {
+      if (event.type == sf::Event::KeyPressed)
+      {
+        if (event.key.code == sf::Keyboard::Return && state == State::PLAYING)
+        {
+          state = State::PAUSED;
+        } else if (event.key.code == sf::Keyboard::Return && state == State::PAUSED)
+        {
+          state = State::PLAYING;
+          clock.restart();
+        }
+        else if (event.key.code == sf::Keyboard::Return && state == State::GAME_OVER)
+        {
+          state = State::LEVELING_UP;
+        }
+        // if (state == State::PLAYING)
+        // {
+        //
+        // }
+      }
+    }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
+      window.close();
+    if (state == State::PLAYING)
+    {
+      if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
+        player.moveUp();
+      else
+        player.stopUp();
+      if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+        player.moveDown();
+      else
+        player.stopDown();
+      if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+        player.moveLeft();
+      else
+        player.stopLeft();
+      if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+        player.moveRight();
+      else
+        player.stopRight();
+    }
+    if (state == State::LEVELING_UP)
+    {
+      if (event.key.code == sf::Keyboard::Num1 || event.key.code == sf::Keyboard::Num2 ||
+        event.key.code == sf::Keyboard::Num3 || event.key.code == sf::Keyboard::Num4 ||
+        event.key.code == sf::Keyboard::Num5 || event.key.code == sf::Keyboard::Num6)
+      {
+        state = State::PLAYING;
+      }
+      arena.width = 500;
+      arena.height = 500;
+      arena.left = 0;
+      arena.top = 0;
+      int tileSize = 50;
+      player.spawn(arena, resolution, tileSize);\
+      clock.restart();
+    }
   }
   return 0;
 }
