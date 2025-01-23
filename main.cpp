@@ -1,9 +1,11 @@
 #include <SFML/Graphics.hpp>
 #include "ZombieArena.h"
 #include "Player.h"
+#include "TextureHolder.h"
 
 int main()
 {
+  TextureHolder holder;
   enum class State {PAUSED, LEVELING_UP, GAME_OVER, PLAYING};
 
   auto state = State::GAME_OVER;
@@ -20,8 +22,11 @@ int main()
   Player player;
   sf::IntRect arena;
   sf::VertexArray background;
-  sf::Texture textureBackground;
-  textureBackground.loadFromFile("../graphics/background_sheet.png");
+  sf::Texture textureBackground = TextureHolder::GetTexture("../graphics/background_sheet.png");
+
+  int numZombies;
+  int numZombiesAlive;
+  Zombie* zombies = nullptr;
 
   while (window.isOpen())
   {
@@ -44,7 +49,7 @@ int main()
         }
         // if (state == State::PLAYING)
         // {
-        //  
+        //
         // }
       }
     }
@@ -83,7 +88,11 @@ int main()
         arena.left = 0;
         arena.top = 0;
         int tileSize = createBackground(background, arena);
-        player.spawn(arena, resolution, tileSize);\
+        player.spawn(arena, resolution, tileSize);
+        numZombies = 10;
+        delete[] zombies;
+        zombies = createHorde(numZombies, arena);
+        numZombiesAlive = numZombies;
         clock.restart();
       }
     }
@@ -100,6 +109,13 @@ int main()
       player.update(dtAsSeconds, sf::Mouse::getPosition());
       sf::Vector2f playerPosition(player.getCenter());
       mainView.setCenter(player.getCenter());
+      for (int i = 0; i < numZombies; i++)
+      {
+        if (zombies[i].isAlive())
+        {
+          zombies[i].update(dtAsSeconds, playerPosition);
+        }
+      }
     }
     /*
      * DRAW THE SCENE
@@ -109,6 +125,10 @@ int main()
       window.clear();
       window.setView(mainView);
       window.draw(background, &textureBackground);
+      for (int i = 0; i < numZombies; i++)
+      {
+        window.draw(zombies[i].getSprite());
+      }
       window.draw(player.getSprite());
     }
     if (state == State::LEVELING_UP){}
@@ -116,5 +136,6 @@ int main()
     if (state == State::GAME_OVER){}
     window.display();
   }
+  delete[] zombies;
   return 0;
 }
