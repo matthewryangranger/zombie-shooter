@@ -3,7 +3,7 @@ project(zombie_shooter)
 
 set(CMAKE_CXX_STANDARD 20)
 
-set(SOURCE_FILES main.cpp Player.h Player.cpp ZombieArena.h Zombie.h Zombie.cpp CreateHorde.cpp CreateBackground.cpp TextureHolder.h TextureHolder.cpp)
+set(SOURCE_FILES main.cpp Player.h Player.cpp Bullet.h Bullet.cpp ZombieArena.h Zombie.h Zombie.cpp CreateHorde.cpp CreateBackground.cpp TextureHolder.h TextureHolder.cpp)
 add_executable(zombie_shooter ${SOURCE_FILES})
 
 set(CMAKE_PREFIX_PATH /opt/homebrew/Cellar/sfml/2.6.2)
