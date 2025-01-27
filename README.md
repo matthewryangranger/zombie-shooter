@@ -8,6 +8,11 @@ A pixelated zombie rpg shooter!
 > 
 >  <img width="728" alt="image" src="https://github.com/user-attachments/assets/ed34c052-a10c-494b-90f5-768aecebc333" />
 >
-> Player can still use WASD keys to move around.
+> Player can use WASD keys to move around.
+>
+> Jan 25 2025 | Zombies chase the player upon spawning into the game. 
 > 
-> Soon - > Zombies chasing the player, bigger arena levels, ammunition upgrades.
+>  <img width="555" alt="image" src="https://github.com/user-attachments/assets/8eec14f4-5b33-4b35-a5c3-3035ac35fac9" />
+>
+> Soon: Player can shoot bullets, and arena levels change size depending on level or advancement. 
+
