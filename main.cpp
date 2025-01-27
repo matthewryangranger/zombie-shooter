@@ -1,6 +1,7 @@
 #include <SFML/Graphics.hpp>
 #include "ZombieArena.h"
 #include "Player.h"
+#include "Bullet.h"
 #include "TextureHolder.h"
 
 int main()
@@ -26,7 +27,14 @@ int main()
 
   int numZombies;
   int numZombiesAlive;
-  Zombie* zombies = nullptr;
+  Zombie* zombies = NULL;
+  Bullet bullets[100];
+  int currentBullet = 0;
+  int bulletsSpare = 24;
+  int bulletsInClip = 6;
+  int clipSize = 6;
+  float fireRate = 1;
+  sf::Time lastPressedTrigger;
 
   while (window.isOpen())
   {
