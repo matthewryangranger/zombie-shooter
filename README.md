@@ -14,7 +14,7 @@ A pixelated zombie rpg shooter!
 > 
 >  <img width="555" alt="image" src="https://github.com/user-attachments/assets/8eec14f4-5b33-4b35-a5c3-3035ac35fac9" />
 >
-> Known bug of not all zombies becoming animated - No reason why this happens!
+> Known bug of not all zombies becoming animated - No reason why this happens! Will look into this soon.
 > 
-> Soon: Player can shoot bullets, and arena levels change size depending on level or advancement. 
+> Features coming: Player can shoot bullets, and arena levels change size depending on level or advancement. 
 
