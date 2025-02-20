@@ -17,4 +17,11 @@ A pixelated zombie rpg shooter!
 > Known bug of not all zombies becoming animated - No reason why this happens! Will look into this soon.
 > 
 > Features coming: Player can shoot bullets, and arena levels change size depending on level or advancement. 
+>
+> Feb 20 2025 | Bug Solved: All zombies become animated. Player can shoot bullets and health/ammo packs are available for the player.
+>
+> <img width="427" alt="image" src="https://github.com/user-attachments/assets/70755b96-ff79-4cf7-a7bf-6e67909793c3" />
+>
+> Also noticed that there is an issue of the player not exactly turning as fast to where the mouse/cursor is placed. The bullets hit exactly where the cursor is {the crosshairs}, but due to the former it is a bit offset. This will have to be the next thing that I look into and keep up development.
+> 
 
