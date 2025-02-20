@@ -109,29 +109,45 @@ void Player::stopDown()
 
 void Player::update(float elapsedTime, sf::Vector2i mousePosition)
 {
-  if (m_LeftPressed)
-    m_Position.x -= m_Speed * elapsedTime;
-  if (m_RightPressed)
-    m_Position.x += m_Speed * elapsedTime;
   if (m_UpPressed)
+  {
     m_Position.y -= m_Speed * elapsedTime;
+  }
   if (m_DownPressed)
+  {
     m_Position.y += m_Speed * elapsedTime;
-
+  }
+  if (m_RightPressed)
+  {
+    m_Position.x += m_Speed * elapsedTime;
+  }
+  if (m_LeftPressed)
+  {
+    m_Position.x -= m_Speed * elapsedTime;
+  }
   m_Sprite.setPosition(m_Position);
-
+  // Keep the player in the arena
   if (m_Position.x > m_Arena.width - m_TileSize)
+  {
     m_Position.x = m_Arena.width - m_TileSize;
+  }
   if (m_Position.x < m_Arena.left + m_TileSize)
+  {
     m_Position.x = m_Arena.left + m_TileSize;
+  }
   if (m_Position.y > m_Arena.height - m_TileSize)
+  {
     m_Position.y = m_Arena.height - m_TileSize;
+  }
   if (m_Position.y < m_Arena.top + m_TileSize)
+  {
     m_Position.y = m_Arena.top + m_TileSize;
-
-  float angle = (atan2(mousePosition.y - m_Resolution.y / 2, mousePosition.x - m_Resolution.x / 2) * 180) / M_PI;
-
-  m_Sprite.setRotation(angle);
+  }
+  // Calculate the angle the player is facing
+  float currentAngle = m_Sprite.getRotation();
+  float newAngle = atan2(mousePosition.y - m_Position.y, mousePosition.x - m_Position.x) * 180 / 3.14159f;
+  //float smoothedAngle = currentAngle + (newAngle - currentAngle) * 0.1f; // Adjust smoothing factor
+  m_Sprite.setRotation(newAngle);
 }
 
 void Player::upgradeSpeed()
