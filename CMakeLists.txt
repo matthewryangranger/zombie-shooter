@@ -3,7 +3,7 @@ project(zombie_shooter)
 
 set(CMAKE_CXX_STANDARD 20)
 
-set(SOURCE_FILES main.cpp Player.h Player.cpp Bullet.h ZombieArena.h Zombie.h Zombie.cpp CreateHorde.cpp CreateBackground.cpp TextureHolder.h TextureHolder.cpp
+set(SOURCE_FILES main.cpp Player.h Player.cpp Pickup.h Pickup.cpp Bullet.h ZombieArena.h Zombie.h Zombie.cpp CreateHorde.cpp CreateBackground.cpp TextureHolder.h TextureHolder.cpp
         Bullet.cpp)
 add_executable(zombie_shooter ${SOURCE_FILES})
 
