@@ -1,7 +1,6 @@
 ## Zombie Shooter with SFML
 A pixelated zombie rpg shooter!
 
-
 > Screenshots of development progress:
 > 
 > Jan 17 2025 | Player positioned in center of arena, with mouse having the ability to rotate the character 360 deg. 
@@ -27,4 +26,13 @@ A pixelated zombie rpg shooter!
 > <img width="434" alt="image" src="https://github.com/user-attachments/assets/d66ed0c6-9d9b-44c4-b772-f44e3e1c9513" />
 >
 > We can effectively shoot the zombies by detecting collisions, pick up grabs, and be hurt ourselves. 
+>
+> Feb 21 2025 | The HUD is now implemented
+> <img width="2054" alt="image" src="https://github.com/user-attachments/assets/aaefb019-5cb5-4cf6-baeb-080a99e2d85f" />
+>
+> <img width="2056" alt="image" src="https://github.com/user-attachments/assets/e61ca5f8-17f6-4424-aca7-c9cf7e6cb198" />
+>
+> The Home screen is now added
+> <img width="2000" alt="image" src="https://github.com/user-attachments/assets/9ec79853-a20d-4e1a-b780-66763d7649e5" />
+
 
