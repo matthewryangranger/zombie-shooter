@@ -34,5 +34,9 @@ A pixelated zombie rpg shooter!
 >
 > The Home screen is now added
 > <img width="2000" alt="image" src="https://github.com/user-attachments/assets/9ec79853-a20d-4e1a-b780-66763d7649e5" />
+>
+> Player arena now increases with each wave of zombies, with the number of zombies also increasing.
+>
+> ![image](https://github.com/user-attachments/assets/455a17ec-0561-4861-ab11-43e04f6bc5c2)
 
 
