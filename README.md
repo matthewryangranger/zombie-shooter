@@ -42,6 +42,18 @@ A pixelated zombie rpg shooter!
 > Full sound added to player and zombie actions and powerups.
 > 
 > ![image](https://github.com/user-attachments/assets/8fea8735-a7aa-4b21-933f-843d5799be1d)
+>
+> Ideas for further development:
+> 
+> Fix cursor issue with angle of the gun crosshairs
+> 
+> Have more added pressure on the player with zombies increasing in speed as the level goes on.
+> 
+> Add a cool sound effect for the last zombie being shot on that current level.
+> 
+> Better transition when the level ends
+> 
+> Make the level layout different based on the zombie wave.
 
 
 
