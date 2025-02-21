@@ -38,5 +38,10 @@ A pixelated zombie rpg shooter!
 > Player arena now increases with each wave of zombies, with the number of zombies also increasing.
 >
 > ![image](https://github.com/user-attachments/assets/455a17ec-0561-4861-ab11-43e04f6bc5c2)
+>
+> Full sound added to player and zombie actions and powerups.
+> 
+> ![image](https://github.com/user-attachments/assets/8fea8735-a7aa-4b21-933f-843d5799be1d)
+
 
 
